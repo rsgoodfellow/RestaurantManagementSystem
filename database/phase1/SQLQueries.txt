@@ -1,0 +1,19 @@
+USE RestaurantManagementSystem;
+
+--Grouped by category
+SELECT c.categoryname, m.itemname
+FROM MenuItems m
+INNER JOIN Category c ON m.categoryid = c.categoryid
+GROUP BY c.categoryname, m.itemname
+ORDER BY c.categoryname, m.itemname;
+
+--Open Tables
+SELECT tablenumber, status
+FROM Tables
+WHERE status = 'Open'
+ORDER BY tablenumber;
+
+--5 most recent orders
+SELECT TOP 5 o.orderid, o.order_date
+FROM Orders o
+ORDER BY o.order_date;

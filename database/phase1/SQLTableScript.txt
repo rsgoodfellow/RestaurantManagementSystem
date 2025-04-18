@@ -1,0 +1,63 @@
+CREATE DATABASE RestaurantManagementSystem;
+
+USE RestaurantManagementSystem;
+
+CREATE TABLE Users (
+    userid int PRIMARY KEY IDENTITY(1,1),
+    firstname varchar(50) NOT NULL,
+	lastname varchar(50) NOT NULL,
+    roleid int FOREIGN KEY (roleid) REFERENCES Roles(roleid)
+);
+
+CREATE TABLE Roles (
+    roleid int PRIMARY KEY IDENTITY(1,1),
+    rolename varchar(50) NOT NULL
+);
+
+CREATE TABLE Category (
+    categoryid int PRIMARY KEY IDENTITY(1,1),
+    categoryname varchar(50) NOT NULL,
+);
+
+CREATE TABLE MenuItems (
+    itemid int PRIMARY KEY IDENTITY(1,1),
+    itemname varchar(50) NOT NULL,
+    categoryid int  FOREIGN KEY (categoryid) REFERENCES Category(categoryid),
+    price decimal DEFAULT 9.99 NOT NULL
+);
+
+CREATE TABLE Tables (
+    tableid int PRIMARY KEY IDENTITY(1,1),
+    tablenumber int NOT NULL,
+    seats int,
+    status varchar(10) DEFAULT 'Open' NOT NULL
+);
+
+CREATE TABLE Orders (
+    orderid INT PRIMARY KEY IDENTITY(1,1),
+    userid INT FOREIGN KEY (userid) REFERENCES Users(userid),
+    tableid INT FOREIGN KEY (tableid) REFERENCES Tables(tableid),
+    order_status VARCHAR(20),
+    order_date DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE OrderDetails (
+    orderedid int PRIMARY KEY IDENTITY(1,1),
+    orderid int FOREIGN KEY (orderid) REFERENCES Orders(orderid),
+    itemid int FOREIGN KEY (itemid) REFERENCES MenuItems(itemid),
+    quantity int NOT NULL,
+    price decimal NOT NULL,
+);
+
+CREATE TABLE Reservations (
+    resid INT PRIMARY KEY IDENTITY(1,1),
+    userid INT FOREIGN KEY (userid) REFERENCES Users(userid),
+    tableid INT FOREIGN KEY (tableid) REFERENCES Tables(tableid),
+    reservation_time DATETIME,
+);
+
+CREATE TABLE Bills (
+    billid int PRIMARY KEY IDENTITY(1,1),
+    orderid int FOREIGN KEY (orderid) REFERENCES Orders(orderid),
+    ordertotal decimal NOT NULL
+);

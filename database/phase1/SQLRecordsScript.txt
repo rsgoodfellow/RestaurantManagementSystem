@@ -1,0 +1,122 @@
+USE RestaurantManagementSystem;
+--Role Records
+--------------------------------------------------------------------------------
+INSERT INTO Roles (rolename) VALUES ('Resturant Administrator');
+INSERT INTO Roles (rolename) VALUES ('Resturant Manager');
+INSERT INTO Roles (rolename) VALUES ('Resturant Staff Member');
+
+--User Records
+--------------------------------------------------------------------------------
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('John', 'Doe', 1);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('Walter', 'White', 2);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('Gustavo', 'Fring', 2);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('Tuco', 'Salamanca', 2);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('Jesse', 'Pinkman', 3);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('Mike', 'Ehrmantraut', 3);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('Flynn', 'White', 3);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('James', 'Sunderland', 3);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('Gordon', 'Freeman', 3);
+INSERT INTO Users (firstname, lastname, roleid) VALUES ('Nikita', 'Kryukov', 3);
+
+--Category Records
+--------------------------------------------------------------------------------
+INSERT INTO Category (categoryname) VALUES ('Kids Food');
+INSERT INTO Category (categoryname) VALUES ('Burgers');
+INSERT INTO Category (categoryname) VALUES ('Mexican Food');
+INSERT INTO Category (categoryname) VALUES ('Entres');
+INSERT INTO Category (categoryname) VALUES ('Drinks');
+INSERT INTO Category (categoryname) VALUES ('Deserts');
+INSERT INTO Category (categoryname) VALUES ('Sides');
+INSERT INTO Category (categoryname) VALUES ('Asian Food');
+INSERT INTO Category (categoryname) VALUES ('Indian Food');
+INSERT INTO Category (categoryname) VALUES ('European Food');
+
+--Menu Item Records
+--------------------------------------------------------------------------------
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Mini Chicken Nuggets', 1, 4.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Mac & Cheese Bowl', 1, 5.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Grilled Cheese Sandwich', 1, 4.79);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Classic Beef Burger', 3, 8.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Double Cheeseburger', 3, 10.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Chicken Tacos', 3, 9.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Beef Burrito', 4, 10.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Nachos Supreme', 4, 8.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Tortilla Chips', 5, 17.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Coke', 6, 2.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Iced Tea', 6, 2.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Sparkling Water', 6, 1.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Chocolate Lava Cake', 7, 5.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Vanilla Ice Cream Sundae', 7, 4.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Strawberry Cheesecake', 7, 5.79);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('French Fries', 8, 3.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Onion Rings', 8, 3.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Coleslaw', 8, 2.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Chicken Teriyaki Bowl', 9, 11.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Beef Chow Mein', 9, 10.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Vegetable Fried Rice', 9, 9.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Butter Chicken with Rice', 10, 12.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Paneer Tikka Masala', 10, 11.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Garlic Naan', 100, 2.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Spaghetti Bolognese', 11, 11.99);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Fish and Chips', 11, 12.49);
+INSERT INTO MenuItems (itemname, categoryid, price) VALUES ('Beef Stroganoff', 11, 13.99);
+
+--Table Records
+--------------------------------------------------------------------------------
+INSERT INTO Tables (tablenumber, seats, status) VALUES (1, 4, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (2, 4, 'Open');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (3, 4, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (4, 4, 'Open');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (5, 2, 'Open');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (6, 2, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (7, 6, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (8, 6, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (9, 8, 'Open');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (10, 8, 'Open');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (11, 4, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (12, 4, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (13, 4, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (14, 4, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (15, 4, 'Taken');
+INSERT INTO Tables (tablenumber, seats, status) VALUES (16, 4, 'Taken');
+
+--Order Records
+--------------------------------------------------------------------------------
+INSERT INTO Orders (userid, tableid, order_status) VALUES (5, 1, 'Finished');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (5, 3, 'Waiting');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (6, 6, 'Finished');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (7, 7, 'Finished');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (7, 8, 'Waiting');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (5, 11, 'Finished');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (8, 12, 'Finished');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (5, 13, 'Finished');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (6, 14, 'Finished');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (9, 15, 'Finished');
+INSERT INTO Orders (userid, tableid, order_status) VALUES (10, 16, 'Finished');
+
+--Order Details Records
+--------------------------------------------------------------------------------
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (1, 26, 1, 12.49);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (2, 3, 1, 4.79);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (3, 11, 1, 2.49);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (4, 14, 1, 4.49);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (5, 6, 1, 9.49);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (6, 8, 1, 8.49);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (7, 10, 1, 2.99);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (8, 23, 1, 11.49);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (9, 20, 1, 10.99);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (10, 4, 1, 8.99);
+INSERT INTO OrderDetails (orderid, itemid, quantity, price) VALUES (11, 26, 1, 12.49);
+
+--Reservations Records
+--------------------------------------------------------------------------------
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(5, 1, '2025-04-18 19:30:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(6, 2, '2025-04-19 12:00:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(7, 3, '2025-04-20 15:45:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(8, 4, '2025-04-21 18:00:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(9, 5, '2025-04-22 14:30:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(10, 6, '2025-04-23 11:00:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(5, 7, '2025-04-18 20:00:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(6, 8, '2025-04-19 17:15:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(7, 9, '2025-04-20 19:30:00');
+INSERT INTO Reservations (userid, tableid, reservation_time) VALUES(8, 10, '2025-04-21 13:00:00');
