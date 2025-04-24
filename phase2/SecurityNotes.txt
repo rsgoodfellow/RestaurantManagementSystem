@@ -1,0 +1,36 @@
+All permissions:
+(1, 'add_menu_item'),
+(2, 'edit_menu_item'),
+(3, 'delete_menu_item'),
+(4, 'create_order'),
+(5, 'generate_bill'),
+(6, 'assign_role');
+
+Admin permmissions:
+(1, 'add_menu_item'),
+(2, 'edit_menu_item'),
+(3, 'delete_menu_item'),
+(4, 'create_order'),
+(5, 'generate_bill'),
+(6, 'assign_role');
+
+Staff/Manager permissions:
+(4, 'create_order'),
+(5, 'generate_bill');
+
+Role Id's:
+1 = Admin,
+2 = Manager,
+3 = Staff;
+
+All users:
+(firstname, lastname, roleid) VALUES ('John', 'Doe', 1);
+(firstname, lastname, roleid) VALUES ('Walter', 'White', 2);
+(firstname, lastname, roleid) VALUES ('Gustavo', 'Fring', 2);
+(firstname, lastname, roleid) VALUES ('Tuco', 'Salamanca', 2);
+(firstname, lastname, roleid) VALUES ('Jesse', 'Pinkman', 3);
+(firstname, lastname, roleid) VALUES ('Mike', 'Ehrmantraut', 3);
+(firstname, lastname, roleid) VALUES ('Flynn', 'White', 3);
+(firstname, lastname, roleid) VALUES ('James', 'Sunderland', 3);
+(firstname, lastname, roleid) VALUES ('Gordon', 'Freeman', 3);
+(firstname, lastname, roleid) VALUES ('Nikita', 'Kryukov', 3);

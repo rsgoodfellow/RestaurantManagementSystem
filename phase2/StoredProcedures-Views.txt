@@ -1,0 +1,98 @@
+--I'm unsure if this is the correct way to create stored procedures and views.
+--I don't recall us doing much of this in class so I did my best in the reasearch I did
+--to get this done.
+--I inserted each group of code individually to avoid errors, please do the same if you are reciving errors.
+--I also added lines in this document to make it more readable
+
+
+--The following procedures can only be accessed by Admins
+------------------------------------------------------------------------------------------------
+--Add Menu Item
+CREATE PROCEDURE AddMenuItem (
+    IN itemname VARCHAR(50),
+    IN price DECIMAL,
+    IN categoryid int
+)
+BEGIN
+    INSERT INTO MenuItems (itemname, price, categoryid) VALUES (itemname, price, categoryid);
+END;
+
+-- Edit Menu Item
+CREATE PROCEDURE EditMenuItem (
+    IN itemid INT,
+    IN new_itemname VARCHAR(50),
+    IN new_price DECIMAL,
+    IN new_categoryid int
+)
+BEGIN
+    UPDATE menu SET itemname = new_itemname, price = new_price, category = new_categoryid
+    WHERE itemid = itemid;
+END;
+
+-- Delete Menu Item
+CREATE PROCEDURE DeleteMenuItem (
+    IN item_d INT
+)
+BEGIN
+    DELETE FROM menu WHERE itemid = itemid;
+END;
+
+-- Assign or Update Employee Role
+CREATE PROCEDURE UpdateUserRole (
+    IN userid INT,
+    IN new_roleid INT
+)
+BEGIN
+    UPDATE users SET roleid = new_roleid WHERE userid = userid;
+END;
+------------------------------------------------------------------------------------------------
+
+--The following procedures can be accessed by all
+------------------------------------------------------------------------------------------------
+-- Create Order
+CREATE PROCEDURE CreateOrder (
+    IN tableid INT,
+    IN userid INT
+)
+BEGIN
+    INSERT INTO orders (tableid, userid, order_status, order_date)
+    VALUES (tableid, userid, 'Taken', NOW());
+END;
+
+-- Update Order Status
+CREATE PROCEDURE UpdateOrderStatus (
+    IN orderid INT,
+    IN new_status VARCHAR(20)
+)
+BEGIN
+    UPDATE orders SET order_status = new_status WHERE id = orderid;
+END;
+
+-- Generate Bill for Completed Order
+CREATE FUNCTION GenerateBill(orderid INT)
+RETURNS DECIMAL
+BEGIN
+    DECLARE total DECIMAL;
+    SELECT SUM(m.price * od.quantity) INTO total
+    FROM OrderDetails od
+    JOIN MenuItems m ON od.itemid = m.id
+    WHERE di.itemid = itemid;
+    RETURN total;
+END;
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+
+--Views
+------------------------------------------------------------------------------------------------
+-- View Order History by Date or Table
+CREATE VIEW OrderHistory AS
+SELECT o.id, o.tableid, o.orderdate, o.order_status, u.firstname AS staff
+FROM orders o
+JOIN users u ON o.userid = u.userid;
+
+-- Staff Activity Logs
+CREATE VIEW StaffActivity AS
+SELECT o.userid, u.firstname, COUNT(*) AS orders_handled
+FROM orders o
+JOIN users u ON o.userid = u.userid
+GROUP BY o.userid, u.firstname;

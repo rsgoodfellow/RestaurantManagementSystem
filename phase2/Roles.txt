@@ -1,0 +1,37 @@
+--I did my best on trying to figure out how to create proper roles and permissions through my research
+--I'm unsure if this is acceptable for the project, however I don't recall us doing something simalar in
+--class so I'm sorry if you were expecting something else.
+--I inserted each group of code individually to avoid errors, please do the same if you are reciving errors.
+
+--created table for each permission
+CREATE TABLE Permissions (
+    permissionid INT PRIMARY KEY,
+    permissionname VARCHAR(50) UNIQUE NOT NULL
+);
+
+--created table to assign permissions to each role
+CREATE TABLE RolePermissions (
+    roleid INT FOREIGN KEY (roleid) REFERENCES Roles(roleid),
+    permissionid INT FOREIGN KEY (permissionid) REFERENCES Permissions(permissionid)
+);
+
+--initializing permissions
+INSERT INTO Permissions VALUES
+(1, 'add_menu_item'),
+(2, 'edit_menu_item'),
+(3, 'delete_menu_item'),
+(4, 'create_order'),
+(5, 'generate_bill'),
+(6, 'assign_role');
+
+--Assigning Admin permissions (ALL PERMISSIONS)
+INSERT INTO RolePermissions VALUES
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6);
+
+--Assigning Manager permissions (create orders and generate bills only)
+INSERT INTO rolepermissions VALUES
+(2, 4), (2, 5);
+
+--Assigning Staff permissions   (create orders and generate bills only)
+INSERT INTO rolepermissions VALUES
+(3, 4), (3, 5);
