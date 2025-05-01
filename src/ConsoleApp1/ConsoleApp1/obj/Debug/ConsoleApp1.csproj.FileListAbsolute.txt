@@ -1,0 +1,7 @@
+F:\Advanced Database\database\src\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+F:\Advanced Database\database\src\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+F:\Advanced Database\database\src\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+F:\Advanced Database\database\src\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+F:\Advanced Database\database\src\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+F:\Advanced Database\database\src\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+F:\Advanced Database\database\src\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
